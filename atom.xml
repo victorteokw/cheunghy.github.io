@@ -4,7 +4,7 @@
   <title><![CDATA[Tieh Kai Woo's Blog]]></title>
   <link href="http://cheunghy.github.io/atom.xml" rel="self"/>
   <link href="http://cheunghy.github.io/"/>
-  <updated>2014-07-14T11:26:39+08:00</updated>
+  <updated>2014-07-14T11:28:13+08:00</updated>
   <id>http://cheunghy.github.io/</id>
   <author>
     <name><![CDATA[Tieh Kai Woo]]></name>
@@ -12,38 +12,5 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
-  
-  <entry>
-    <title type="html"><![CDATA[First Time Blogging Article 2]]></title>
-    <link href="http://cheunghy.github.io/blog/2014/07/14/first-time-blogging-article-2/"/>
-    <updated>2014-07-14T11:18:57+08:00</updated>
-    <id>http://cheunghy.github.io/blog/2014/07/14/first-time-blogging-article-2</id>
-    <content type="html"><![CDATA[<p>Content2<br>
-Content</p>
-
-<figure class='code'><figcaption><span>Title Tricks linenos:true Source Article</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">function</span> <span class="nx">kljlkj</span><span class="p">()</span> <span class="p">{</span>
-</span><span class='line'>         <span class="kd">var</span> <span class="nx">ksjdf</span><span class="p">;</span>
-</span><span class='line'>         <span class="kd">var</span> <span class="nx">kljsldkfj</span> <span class="o">=</span> <span class="s2">&quot;sdf&quot;</span><span class="p">;</span>
-</span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[First Time Blogging]]></title>
-    <link href="http://cheunghy.github.io/blog/2014/07/14/first-time-blogging/"/>
-    <updated>2014-07-14T11:08:23+08:00</updated>
-    <id>http://cheunghy.github.io/blog/2014/07/14/first-time-blogging</id>
-    <content type="html"><![CDATA[<p>Content Here?
-Content Here?</p>
-]]></content>
-  </entry>
   
 </feed>
