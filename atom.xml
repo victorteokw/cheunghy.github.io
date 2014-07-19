@@ -4,7 +4,7 @@
   <title><![CDATA[Tieh Kai Woo's Blog]]></title>
   <link href="http://cheunghy.github.io/atom.xml" rel="self"/>
   <link href="http://cheunghy.github.io/"/>
-  <updated>2014-07-14T13:52:33+08:00</updated>
+  <updated>2014-07-19T13:19:40+08:00</updated>
   <id>http://cheunghy.github.io/</id>
   <author>
     <name><![CDATA[Tieh Kai Woo]]></name>
@@ -12,5 +12,322 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[领略SCSS的魅力]]></title>
+    <link href="http://cheunghy.github.io/blog/2014/07/19/introduction-to-scss-in-chinese/"/>
+    <updated>2014-07-19T13:14:35+08:00</updated>
+    <id>http://cheunghy.github.io/blog/2014/07/19/introduction-to-scss-in-chinese</id>
+    <content type="html"><![CDATA[<p>在今天的移动互联网环境下，高效开发成为产品成功与否的重要因素。开发效率和代码可重构性，可重用性，成为衡量开发者能力与项目好坏的重要指标。在这种环境下，传统的CSS由于种种原因，代码沉余，难以维护，随着项目增大，问题变得突出，开发效率开始被拖低，严重者影响商业模式的运转。因此前端开发者需要一种或一系列方法或机制，来维护CSS代码，从而提高开发效率和项目代码质量。</p>
+
+<h3>初识SCSS</h3>
+
+<p>SCSS全名叫做Sassy CSS，前身是Sass，意思为语法霸道的CSS。具有很多普通CSS不具有的特性。</p>
+
+<h4>变量</h4>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='scss'><span class='line'><span class="nv">$tint-color</span><span class="o">:</span> <span class="nf">rgb</span><span class="p">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">122</span><span class="o">,</span> <span class="mi">255</span><span class="p">);</span>
+</span><span class='line'><span class="nv">$font-stack</span><span class="o">:</span> <span class="n">HelveticaNeue</span><span class="o">,</span> <span class="n">Arial</span><span class="o">,</span> <span class="no">sans-serif</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nt">a</span> <span class="p">{</span>
+</span><span class='line'>    <span class="na">color</span><span class="o">:</span> <span class="nv">$tint-color</span><span class="p">;</span>
+</span><span class='line'>    <span class="na">font</span><span class="o">:</span> <span class="nv">$font-stack</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="nt">p</span> <span class="p">{</span>
+</span><span class='line'>    <span class="na">font</span><span class="o">:</span> <span class="nv">$font-stack</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>在前端开发中，网页往往有主色调。很多不同的部分使用同一种颜色值，比如超链接，logo，装饰的颜色都一样。如果设计师对此色值进行微调，在传统的CSS中，需要使用编辑器或Unix命令查找替换所有色值。而在SCSS中，仅需要修改一个变量，就可以达到目的。</p>
+
+<h4>嵌套</h4>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='scss'><span class='line'><span class="nc">.cell</span> <span class="p">{</span>
+</span><span class='line'>    <span class="na">border</span><span class="o">:</span> <span class="nv">$some-border</span><span class="p">;</span>
+</span><span class='line'>    <span class="nc">.indicator</span> <span class="p">{</span>
+</span><span class='line'>        <span class="na">color</span><span class="o">:</span> <span class="nv">$tint-color</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>    <span class="nc">.icon</span> <span class="p">{</span>
+</span><span class='line'>        <span class="na">top</span><span class="o">:</span> <span class="nv">$top-margin</span><span class="p">;</span>
+</span><span class='line'>        <span class="na">left</span><span class="o">:</span> <span class="nv">$left-margin</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>在很多情况下，一个元素或一个类只有在某一元素内才有意义，比如模仿iOS的标准表格视图，一旦图标出现在表格之外便没有意义。使用嵌套，不仅能够令css的层级与html相同，更有助于释放命名空间，减少奇怪bug发生和难debug的可能性。</p>
+
+<h4>片段和引入</h4>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+</pre></td><td class='code'><pre><code class='scss'><span class='line'><span class="cm">/* _base.scss */</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$text-color</span><span class="o">:</span> <span class="mh">#333333</span><span class="p">;</span>
+</span><span class='line'><span class="nv">$bg-color</span><span class="o">:</span> <span class="nb">white</span><span class="p">;</span>
+</span><span class='line'><span class="nv">$tint-color</span><span class="o">:</span> <span class="nf">rgb</span><span class="p">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">122</span><span class="o">,</span> <span class="mi">255</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">*</span> <span class="p">{</span>
+</span><span class='line'>    <span class="na">box-sizing</span><span class="o">:</span> <span class="no">border</span><span class="o">-</span><span class="n">box</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="nt">body</span> <span class="p">{</span>
+</span><span class='line'>    <span class="na">color</span><span class="o">:</span> <span class="nv">$text-color</span><span class="p">;</span>
+</span><span class='line'>    <span class="na">background-color</span><span class="o">:</span> <span class="nv">$bg-color</span><span class="p">;</span>
+</span><span class='line'>    <span class="na">margin</span><span class="o">:</span> <span class="mi">0</span><span class="kt">px</span><span class="p">;</span>
+</span><span class='line'>    <span class="na">font</span><span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>        <span class="na">family</span><span class="o">:</span> <span class="nv">$font-stack</span><span class="p">;</span>
+</span><span class='line'>        <span class="na">size</span><span class="o">:</span> <span class="nv">$body-font-size</span><span class="p">;</span>
+</span><span class='line'>        <span class="na">weight</span><span class="o">:</span> <span class="no">normal</span><span class="p">;</span>
+</span><span class='line'>        <span class="na">style</span><span class="o">:</span> <span class="no">normal</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="cm">/* some_view.scss */</span>
+</span><span class='line'><span class="k">@import</span> <span class="s1">&#39;</span><span class="s2">base&#39;</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nt">a</span> <span class="p">{</span>
+</span><span class='line'>    <span class="na">color</span><span class="o">:</span> <span class="nv">$tint-color</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="cm">/* another_view.scss */</span>
+</span><span class='line'><span class="k">@import</span> <span class="s1">&#39;</span><span class="s2">base&#39;</span><span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>不同视图可能会有相同的基本样式，比如主色调或者一些尺寸值。可以将相同的内容一并放入片段文件，来避免写一个巨大的没有命名空间的全局样式表。SCSS足够聪明理解你的@import究竟是引入SCSS的还是保留在CSS中的。</p>
+
+<h4>混合</h4>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+</pre></td><td class='code'><pre><code class='scss'><span class='line'><span class="cm">/* 浏览器兼容示例 */</span>
+</span><span class='line'><span class="k">@mixin</span><span class="nf"> user-select</span><span class="p">(</span><span class="nv">$selectable</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="na">-webkit-touch-callout</span><span class="o">:</span> <span class="nv">$selectable</span><span class="p">;</span>
+</span><span class='line'>    <span class="na">-webkit-user-select</span><span class="o">:</span> <span class="nv">$selectable</span><span class="p">;</span>
+</span><span class='line'>    <span class="na">-khtml-user-select</span><span class="o">:</span> <span class="nv">$selectable</span><span class="p">;</span>
+</span><span class='line'>    <span class="na">-moz-user-select</span><span class="o">:</span> <span class="nv">$selectable</span><span class="p">;</span>
+</span><span class='line'>    <span class="na">-ms-user-select</span><span class="o">:</span> <span class="nv">$selectable</span><span class="p">;</span>
+</span><span class='line'>    <span class="na">user-select</span><span class="o">:</span> <span class="nv">$selectable</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="nc">.cell</span> <span class="p">{</span> <span class="k">@include</span><span class="nd"> user-select</span><span class="p">(</span><span class="no">none</span><span class="p">);</span> <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="cm">/* 手机下的超链接示例 */</span>
+</span><span class='line'><span class="k">@mixin</span><span class="nf"> tap-highlight-color</span><span class="p">(</span><span class="nv">$color</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="na">-webkit-tap-highlight-color</span><span class="o">:</span> <span class="nv">$color</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="k">@mixin</span><span class="nf"> a-color</span><span class="p">(</span><span class="nv">$color</span><span class="o">,</span> <span class="nv">$highlight-color</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="na">color</span><span class="o">:</span> <span class="nv">$color</span><span class="p">;</span>
+</span><span class='line'>    <span class="na">cursor</span><span class="o">:</span> <span class="no">pointer</span><span class="p">;</span>
+</span><span class='line'>    <span class="na">text-decoration</span><span class="o">:</span> <span class="no">none</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">@include</span><span class="nd"> tap-highlight-color</span><span class="p">(</span><span class="nv">$highlight-color</span><span class="p">);</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="k">@mixin</span><span class="nf"> a-color-set</span><span class="p">(</span><span class="nv">$color</span><span class="o">,</span> <span class="nv">$highlight-color</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">@include</span><span class="nd"> a-color</span><span class="p">(</span><span class="nv">$color</span><span class="o">,</span> <span class="nv">$highlight-color</span><span class="p">);</span>
+</span><span class='line'>    <span class="k">&amp;</span><span class="nd">:link</span> <span class="k">&amp;</span><span class="nd">:visited</span> <span class="k">&amp;</span><span class="nd">:hover</span> <span class="k">&amp;</span><span class="nd">:active</span> <span class="p">{</span>
+</span><span class='line'>        <span class="k">@include</span><span class="nd"> a-color</span><span class="p">(</span><span class="nv">$color</span><span class="o">,</span> <span class="nv">$highlight-color</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="nt">a</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">@include</span><span class="nd"> a-color-set</span><span class="p">(</span><span class="nv">$normal-color</span><span class="o">,</span> <span class="nv">$tap-highlight-color</span><span class="p">);</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>由于浏览器的兼容性原因，有时不得不对同一个样式用不同的浏览器内核前缀写多次，混合很优雅地解决了这个问题。混合的强大之处还表现在可以传递参数。</p>
+
+<h4>扩展和继承</h4>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='scss'><span class='line'><span class="nc">.cell</span> <span class="p">{</span>
+</span><span class='line'>    <span class="cm">/* 普通单元格的属性 */</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="nc">.editing-cell</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">@extend</span> <span class="nc">.cell</span><span class="o">;</span>
+</span><span class='line'>    <span class="o">/*</span> <span class="err">可编辑的单元格拥有更多属性，更像是子类继承了父类</span> <span class="o">*/</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>继承令开发者不需要给一个元素赋值两个类。也使代码清晰，干净。当一个元素与另外一个元素有相似之处，就可以使用继承，这样修改“父类”，“子类”也会随之改变。</p>
+
+<h3>配置SCSS环境</h3>
+
+<p>现在你已经可以快乐地写SCSS代码了，但是还不清楚写好的SCSS代码如何放到网页中去。</p>
+
+<p>SCSS需要Ruby环境，OS X系统下预装了Ruby和相关命令行工具。如果您没有Ruby，或者想更新Ruby的版本，请移步：<a href="https://www.ruby-lang.org/en/downloads/">Ruby官方的下载页面</a></p>
+
+<p>安装SCSS很容易</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>gem install sass
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>将SCSS转CSS</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>sass input.scss output.css
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>在最新的Rails项目中，可以直接使用SCSS。</p>
+
+<h3>SCSS进阶用法</h3>
+
+<h4>注释</h4>
+
+<p>SCSS支持两种注释，/* */可以被编译到CSS中，//则会被省略。</p>
+
+<h4>Sass脚本</h4>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>sass -i
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>使用sass -i命令来启动交互shell。
+Sass支持数字，文本，颜色，布尔，空，列表，哈希表这些数据类型。支持&lt;, >, &lt;=, >=, ==, !=等运算符。有大量内建函数，同时支持自定义函数。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='scss'><span class='line'><span class="nv">$number</span><span class="o">:</span> <span class="mi">1</span><span class="kt">em</span><span class="p">;</span> <span class="c1">// 数字，数字有单位，比如1px, 20%, 1vh</span>
+</span><span class='line'><span class="nv">$string</span><span class="o">:</span> <span class="no">center</span><span class="p">;</span> <span class="c1">// 文本，使用的引号会被CSS保留，字符串插值时除外</span>
+</span><span class='line'><span class="nv">$color</span><span class="o">:</span> <span class="nb">white</span><span class="p">;</span> <span class="c1">// 颜色，也可以是#FFFFFF, rgb(255,255,255)</span>
+</span><span class='line'><span class="nv">$boolean</span><span class="o">:</span> <span class="n-Pseudo">true</span><span class="p">;</span> <span class="c1">// 布尔</span>
+</span><span class='line'><span class="nv">$null</span><span class="o">:</span> <span class="n">null</span><span class="p">;</span> <span class="c1">// 空</span>
+</span><span class='line'><span class="nv">$list</span><span class="o">:</span> <span class="mi">20</span><span class="kt">px</span> <span class="mi">30</span><span class="kt">px</span> <span class="mi">40</span><span class="kt">px</span> <span class="mi">50</span><span class="kt">px</span><span class="p">;</span> <span class="c1">// 列表，有一种是空格隔开，另一种是逗号隔开，比如Helvetica, Arial, sans-serif</span>
+</span><span class='line'><span class="nv">$map</span><span class="o">:</span> <span class="p">(</span><span class="n">key1</span><span class="o">:</span> <span class="n">value1</span><span class="o">,</span> <span class="n">key2</span><span class="o">:</span> <span class="n">value2</span><span class="o">,</span> <span class="n">key3</span><span class="o">:</span> <span class="n">value3</span><span class="p">);</span> <span class="c1">// 哈希表</span>
+</span><span class='line'><span class="nt">p</span> <span class="p">{</span>
+</span><span class='line'>    <span class="na">color</span><span class="o">:</span> <span class="mh">#010203</span> <span class="o">+</span> <span class="mh">#040506</span><span class="p">;</span>
+</span><span class='line'>    <span class="na">font</span><span class="o">:</span> <span class="si">#{</span><span class="nv">$font-size</span><span class="si">}</span><span class="o">/</span><span class="si">#{</span><span class="nv">$line-height</span><span class="si">}</span><span class="p">;</span> <span class="c1">// 除号在直接写的时候不进行运算，使用变量时，可以使用插值来避免运算。</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="nv">$red</span><span class="o">:</span> <span class="nb">red</span><span class="p">;</span>
+</span><span class='line'><span class="nv">$translucent-red</span><span class="o">:</span> <span class="nf">transparentize</span><span class="p">(</span><span class="nv">$red</span><span class="o">,</span> <span class="mi">0</span><span class="mf">.2</span><span class="p">);</span> <span class="c1">// 使用函数</span>
+</span><span class='line'><span class="c1">// 在写框架的时候，运算符和函数非常有用。</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>@debug 和 @warn</h3>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='scss'><span class='line'><span class="k">@debug</span> <span class="mi">10</span><span class="kt">em</span> <span class="o">+</span> <span class="mi">12</span><span class="kt">em</span><span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='scss'><span class='line'><span class="k">@if</span> <span class="nf">unitless</span><span class="p">(</span><span class="nv">$x</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">@warn</span> <span class="s2">&quot;Assuming </span><span class="si">#{</span><span class="nv">$x</span><span class="si">}</span><span class="s2"> to be in pixels&quot;</span><span class="p">;</span>
+</span><span class='line'>    <span class="nv">$x</span><span class="o">:</span> <span class="mi">1</span><span class="kt">px</span> <span class="o">*</span> <span class="nv">$x</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>暂时写到这么多，更详细的文档在<a href="http://sass-lang.com/documentation/file.SASS_REFERENCE.html">这里</a>。所有的内建函数列表在<a href="http://sass-lang.com/documentation/Sass/Script/Functions.html">这里</a>。</p>
+
+<p>关于SCSS，欢迎大家和我一起讨论。</p>
+]]></content>
+  </entry>
   
 </feed>
