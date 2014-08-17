@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: css | Tieh Kai Woo's Blog]]></title>
-  <link href="http://cheunghy.github.io/blog/categories/css/atom.xml" rel="self"/>
+  <title><![CDATA[Category: css sass | Tieh Kai Woo's Blog]]></title>
+  <link href="http://cheunghy.github.io/blog/categories/css-sass/atom.xml" rel="self"/>
   <link href="http://cheunghy.github.io/"/>
-  <updated>2014-07-19T13:19:40+08:00</updated>
+  <updated>2014-08-17T17:46:53+08:00</updated>
   <id>http://cheunghy.github.io/</id>
   <author>
     <name><![CDATA[Tieh Kai Woo]]></name>
@@ -18,11 +18,11 @@
     <link href="http://cheunghy.github.io/blog/2014/07/19/introduction-to-scss-in-chinese/"/>
     <updated>2014-07-19T13:14:35+08:00</updated>
     <id>http://cheunghy.github.io/blog/2014/07/19/introduction-to-scss-in-chinese</id>
-    <content type="html"><![CDATA[<p>在今天的移动互联网环境下，高效开发成为产品成功与否的重要因素。开发效率和代码可重构性，可重用性，成为衡量开发者能力与项目好坏的重要指标。在这种环境下，传统的CSS由于种种原因，代码沉余，难以维护，随着项目增大，问题变得突出，开发效率开始被拖低，严重者影响商业模式的运转。因此前端开发者需要一种或一系列方法或机制，来维护CSS代码，从而提高开发效率和项目代码质量。</p>
+    <content type="html"><![CDATA[<p>在今天的移动互联网环境下，高效敏捷地开发成为产品成功与否的重要因素。开发效率和代码可重构性，可重用性，成为衡量开发者能力与项目好坏的重要指标。在这种环境下，传统的CSS由于种种原因，代码沉余，难以维护，随着项目增大，问题变得突出，开发效率开始被拖低，严重者影响商业模式的运转。因此前端开发者需要一种或一系列方法或机制，来维护CSS代码，从而提高开发效率和项目代码质量。</p>
 
 <h3>初识SCSS</h3>
 
-<p>SCSS全名叫做Sassy CSS，前身是Sass，意思为语法霸道的CSS。具有很多普通CSS不具有的特性。</p>
+<p>SCSS全名叫做Sassy CSS，前身是Sass，意思为语法非凡的CSS。具有很多普通CSS不具有的特性。</p>
 
 <h4>变量</h4>
 
@@ -60,7 +60,7 @@ font: $font-stack;
 .icon {
     top: $top-margin;
     left: $left-margin;
-}     
+}
 </code></pre>
 
 <p>}
@@ -213,7 +213,9 @@ sass input.scss output.css
 sass -i
 </code>
 使用sass -i命令来启动交互shell。
-Sass支持数字，文本，颜色，布尔，空，列表，哈希表这些数据类型。支持&lt;, >, &lt;=, >=, ==, !=等运算符。有大量内建函数，同时支持自定义函数。
+Sass支持数字，文本，颜色，布尔，空，列表，哈希表这些数据类型。支持&lt;, >, &lt;=, >=, ==, !=等运算符。有大量内建函数，同时支持自定义函数。</p>
+
+<p>详细解释如下
 ``` scss
 $number: 1em; // 数字，数字有单位，比如1px, 20%, 1vh
 $string: center; // 文本，使用的引号会被CSS保留，字符串插值时除外
@@ -236,7 +238,8 @@ $translucent-red: transparentize($red, 0.2); // 使用函数
 
 <h3>@debug 和 @warn</h3>
 
-<p><code>scss
+<p>使用@debug和@warn，可以在编译的时候输出一些调试信息和警告信息。
+<code>scss
 @debug 10em + 12em;
 </code>
 ``` scss
