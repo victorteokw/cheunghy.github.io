@@ -4,7 +4,7 @@
   <title><![CDATA[Category: css sass | Tieh Kai Woo's Blog]]></title>
   <link href="http://cheunghy.github.io/blog/categories/css-sass/atom.xml" rel="self"/>
   <link href="http://cheunghy.github.io/"/>
-  <updated>2014-08-17T17:46:53+08:00</updated>
+  <updated>2014-08-18T21:55:03+08:00</updated>
   <id>http://cheunghy.github.io/</id>
   <author>
     <name><![CDATA[Tieh Kai Woo]]></name>
@@ -251,7 +251,7 @@ $x: 1px * $x;
 
 <p>}
 ```
-暂时写到这么多，更详细的文档在<a href="http://sass-lang.com/documentation/file.SASS_REFERENCE.html">这里</a>。所有的内建函数列表在<a href="http://sass-lang.com/documentation/Sass/Script/Functions.html">这里</a>。</p>
+暂时写到这么多，更详细的在<a href="http://sass-lang.com/documentation/file.SASS_REFERENCE.html">官方的文档</a>。所有的内建函数列表在<a href="http://sass-lang.com/documentation/Sass/Script/Functions.html">这里</a>。</p>
 
 <p>关于SCSS，欢迎大家和我一起讨论。</p>
 ]]></content>
