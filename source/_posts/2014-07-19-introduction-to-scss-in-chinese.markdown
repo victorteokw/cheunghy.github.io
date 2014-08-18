@@ -172,6 +172,6 @@ $translucent-red: transparentize($red, 0.2); // 使用函数
     $x: 1px * $x;
 }
 ```
-暂时写到这么多，更详细的文档在[这里](http://sass-lang.com/documentation/file.SASS_REFERENCE.html)。所有的内建函数列表在[这里](http://sass-lang.com/documentation/Sass/Script/Functions.html)。
+暂时写到这么多，更详细的在[官方的文档](http://sass-lang.com/documentation/file.SASS_REFERENCE.html)。所有的内建函数列表在[这里](http://sass-lang.com/documentation/Sass/Script/Functions.html)。
 
 关于SCSS，欢迎大家和我一起讨论。
