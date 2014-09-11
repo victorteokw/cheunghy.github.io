@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: elisp | Tieh Kai Woo's Blog]]></title>
+  <link href="http://cheunghy.github.io/blog/categories/elisp/atom.xml" rel="self"/>
+  <link href="http://cheunghy.github.io/"/>
+  <updated>2014-09-11T14:12:59+08:00</updated>
+  <id>http://cheunghy.github.io/</id>
+  <author>
+    <name><![CDATA[Tieh Kai Woo]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[let and let*]]></title>
+    <link href="http://cheunghy.github.io/blog/2014/09/11/let-and-let-star/"/>
+    <updated>2014-09-11T13:43:28+08:00</updated>
+    <id>http://cheunghy.github.io/blog/2014/09/11/let-and-let-star</id>
+    <content type="html"><![CDATA[<h3>什么是变量绑定？</h3>
+
+<p>先看一段代码。
+``` lisp
+(let* ((this-dir (file-name-directory (or load-file-name buffer-file-name)))</p>
+
+<pre><code>   (util-dir (file-name-as-directory (expand-file-name "util" this-dir)))
+   (inf-ruby-dir (file-name-as-directory (expand-file-name "inf-ruby" util-dir)))
+   (jump-dir (file-name-as-directory (expand-file-name "jump" util-dir))))
+</code></pre>
+
+<p>  (dolist (dir (list util-dir inf-ruby-dir jump-dir))</p>
+
+<pre><code>(when (file-exists-p dir)
+  (add-to-list 'load-path dir))))
+</code></pre>
+
+<p>```
+它有这样的格式：(let VARLIST BODY&hellip;)，说得容易理解就是这样：
+(let ((varname value) (varname value)&hellip;)
+  (body1)
+  (body2)&hellip;)
+这些被绑定的变量是在这个let之内的，一旦let中的语句执行完，就不见了，不会造成变量名污染。</p>
+
+<h3>let 和 let* 的异同。</h3>
+
+<p>let和let*在elisp中，都是局部变量绑定。不同的是，let是平行绑定（parallel binding），let*是顺序绑定。</p>
+
+<p>例子如下：
+<code>lisp
+(setf x 'outside)
+(let ((x 'inside) (y x)
+  (list x y))
+  ;输出结果为(INSIDE OUTSIDE)
+(let* ((x 'inside) (y x)
+  (list x y))
+  ;输出结果为(INSIDE INSIDE)
+</code></p>
+]]></content>
+  </entry>
+  
+</feed>

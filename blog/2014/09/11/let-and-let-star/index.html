@@ -1,0 +1,236 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<script data-cfasync="false" type="text/javascript" src="//use.typekit.net/axj3cfp.js"></script>
+	<script data-cfasync="false" type="text/javascript">try{Typekit.load();}catch(e){}</script>
+	<meta charset="utf-8">
+	<title>let and let*  | Tieh Kai Woo's Blog</title>
+
+<meta name="author" content="Tieh Kai Woo"> 
+
+<meta name="description" content="Tieh Kai Woo's blog."> <meta name="keywords" content="">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<link href="/atom.xml" rel="alternate" title="Tieh Kai Woo's Blog" type="application/atom+xml">
+	<link rel="canonical" href="">
+	<link href="/favicon.png" rel="shortcut icon">
+	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<link href="/stylesheets/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script type="text/javascript" src="/javascripts/jquery.fancybox.pack.js"></script>
+
+<script language="Javascript" type="text/javascript">
+$(document).ready(
+  function() {
+    (function($) {
+      $(".fancybox[data-content-id]").each(function() {
+        this.href = $(this).data('content-id');
+      });
+      $(".fancybox").fancybox({
+        beforeLoad: function() {
+          var el, 
+              id = $(this.element).data('title-id');
+
+          if (id) {
+            el = $('#' + id);
+
+            if (el.length) {
+              this.title = el.html();
+            }
+          }
+          if ($(this).data('content')) {
+            this.content = $(this).data('content');
+          }
+        },
+        helpers: {
+          title: {
+            type: 'inside'
+          }
+        }
+      });
+    })(jQuery);
+  }
+);
+</script>
+
+	
+</head>
+
+
+
+<body>
+	<header id="header" class="inner"><h1><a href="/">Tieh Kai Woo's Blog</a></h1>
+<h4>An Ruby and iOS Developer.</h4>
+<nav id="main-nav"><ul>
+	<li><a href="/">Blog</a></li>
+	<li><a href="/about">About</a></li>
+	<li><a href="/portfolio">Portfolio</a></li>
+	<li><a href="/archives">Archive</a></li>
+</ul>
+</nav>
+<nav id="mobile-nav">
+	<div class="alignleft menu">
+		<a class="button">Menu</a>
+		<div class="container"><ul>
+	<li><a href="/">Blog</a></li>
+	<li><a href="/about">About</a></li>
+	<li><a href="/portfolio">Portfolio</a></li>
+	<li><a href="/archives">Archive</a></li>
+</ul>
+</div>
+	</div>
+	<div class="alignright search">
+		<a class="button"></a>
+		<div class="container">
+			<form action="https://www.google.com/search" method="get">
+				<input type="text" name="q" results="0">
+				<input type="hidden" name="q" value="site:cheunghy.github.io">
+			</form>
+		</div>
+	</div>
+</nav>
+
+
+</header>
+
+	<div id="content" class="inner"><article class="post">
+	<h2 class="title">Let and Let*</h2>
+	<div class="entry-content"><h3>什么是变量绑定？</h3>
+
+<p>先看一段代码。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='lisp'><span class='line'><span class="p">(</span><span class="k">let*</span> <span class="p">((</span><span class="nv">this-dir</span> <span class="p">(</span><span class="nv">file-name-directory</span> <span class="p">(</span><span class="nb">or</span> <span class="nv">load-file-name</span> <span class="nv">buffer-file-name</span><span class="p">)))</span>
+</span><span class='line'>       <span class="p">(</span><span class="nv">util-dir</span> <span class="p">(</span><span class="nv">file-name-as-directory</span> <span class="p">(</span><span class="nv">expand-file-name</span> <span class="s">&quot;util&quot;</span> <span class="nv">this-dir</span><span class="p">)))</span>
+</span><span class='line'>       <span class="p">(</span><span class="nv">inf-ruby-dir</span> <span class="p">(</span><span class="nv">file-name-as-directory</span> <span class="p">(</span><span class="nv">expand-file-name</span> <span class="s">&quot;inf-ruby&quot;</span> <span class="nv">util-dir</span><span class="p">)))</span>
+</span><span class='line'>       <span class="p">(</span><span class="nv">jump-dir</span> <span class="p">(</span><span class="nv">file-name-as-directory</span> <span class="p">(</span><span class="nv">expand-file-name</span> <span class="s">&quot;jump&quot;</span> <span class="nv">util-dir</span><span class="p">))))</span>
+</span><span class='line'>  <span class="p">(</span><span class="nb">dolist</span> <span class="p">(</span><span class="nv">dir</span> <span class="p">(</span><span class="nb">list</span> <span class="nv">util-dir</span> <span class="nv">inf-ruby-dir</span> <span class="nv">jump-dir</span><span class="p">))</span>
+</span><span class='line'>    <span class="p">(</span><span class="nb">when</span> <span class="p">(</span><span class="nv">file-exists-p</span> <span class="nv">dir</span><span class="p">)</span>
+</span><span class='line'>      <span class="p">(</span><span class="nv">add-to-list</span> <span class="ss">&#39;load-path</span> <span class="nv">dir</span><span class="p">))))</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>它有这样的格式：(let VARLIST BODY&hellip;)，说得容易理解就是这样：
+(let ((varname value) (varname value)&hellip;)
+  (body1)
+  (body2)&hellip;)
+这些被绑定的变量是在这个let之内的，一旦let中的语句执行完，就不见了，不会造成变量名污染。</p>
+
+<h3>let 和 let* 的异同。</h3>
+
+<p>let和let*在elisp中，都是局部变量绑定。不同的是，let是平行绑定（parallel binding），let*是顺序绑定。</p>
+
+<p>例子如下：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='lisp'><span class='line'><span class="p">(</span><span class="nb">setf</span> <span class="nv">x</span> <span class="ss">&#39;outside</span><span class="p">)</span>
+</span><span class='line'><span class="p">(</span><span class="k">let</span> <span class="p">((</span><span class="nv">x</span> <span class="ss">&#39;inside</span><span class="p">)</span> <span class="p">(</span><span class="nv">y</span> <span class="nv">x</span><span class="p">)</span>
+</span><span class='line'>  <span class="p">(</span><span class="nb">list</span> <span class="nv">x</span> <span class="nv">y</span><span class="p">))</span>
+</span><span class='line'>  <span class="c1">;输出结果为(INSIDE OUTSIDE)</span>
+</span><span class='line'><span class="p">(</span><span class="k">let*</span> <span class="p">((</span><span class="nv">x</span> <span class="ss">&#39;inside</span><span class="p">)</span> <span class="p">(</span><span class="nv">y</span> <span class="nv">x</span><span class="p">)</span>
+</span><span class='line'>  <span class="p">(</span><span class="nb">list</span> <span class="nv">x</span> <span class="nv">y</span><span class="p">))</span>
+</span><span class='line'>  <span class="c1">;输出结果为(INSIDE INSIDE)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-09-11T13:43:28+08:00" pubdate data-updated="true">Sep 11<sup>th</sup>, 2014</time></div>
+	
+
+<div class="tags">
+
+	<a class='category' href='/blog/categories/elisp/'>elisp</a>
+
+</div>
+
+
+	
+</div></article>
+
+	<div class="share">
+	<div class="addthis_toolbox addthis_default_style ">
+	
+	
+	<a class="addthis_button_tweet"></a>
+	
+	
+<!---	<a class="addthis_counter addthis_pill_style"></a> --->
+	</div>
+  <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid="></script>
+</div>
+
+
+
+<section id="comment">
+    <h2 class="title">Comments</h2>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+</section>
+</div>
+	<footer id="footer" class="inner">Copyright &copy; 2014
+
+    Tieh Kai Woo
+
+<br>
+Powered by Octopress.
+</footer>
+	<script src="/javascripts/slash.js"></script>
+<script src="/javascripts/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+	$('.fancybox').fancybox();
+})(jQuery);
+</script> <!-- Delete or comment this line to disable Fancybox -->
+
+
+<script type="text/javascript">
+      var disqus_shortname = 'tiehkaiwoo';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://cheunghy.github.io/blog/2014/09/11/let-and-let-star/';
+        var disqus_url = 'http://cheunghy.github.io/blog/2014/09/11/let-and-let-star/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+</body>
+</html>

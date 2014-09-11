@@ -4,7 +4,7 @@
   <title><![CDATA[Tieh Kai Woo's Blog]]></title>
   <link href="http://cheunghy.github.io/atom.xml" rel="self"/>
   <link href="http://cheunghy.github.io/"/>
-  <updated>2014-08-18T21:55:03+08:00</updated>
+  <updated>2014-09-11T14:12:59+08:00</updated>
   <id>http://cheunghy.github.io/</id>
   <author>
     <name><![CDATA[Tieh Kai Woo]]></name>
@@ -12,6 +12,63 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[let and let*]]></title>
+    <link href="http://cheunghy.github.io/blog/2014/09/11/let-and-let-star/"/>
+    <updated>2014-09-11T13:43:28+08:00</updated>
+    <id>http://cheunghy.github.io/blog/2014/09/11/let-and-let-star</id>
+    <content type="html"><![CDATA[<h3>什么是变量绑定？</h3>
+
+<p>先看一段代码。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='lisp'><span class='line'><span class="p">(</span><span class="k">let*</span> <span class="p">((</span><span class="nv">this-dir</span> <span class="p">(</span><span class="nv">file-name-directory</span> <span class="p">(</span><span class="nb">or</span> <span class="nv">load-file-name</span> <span class="nv">buffer-file-name</span><span class="p">)))</span>
+</span><span class='line'>       <span class="p">(</span><span class="nv">util-dir</span> <span class="p">(</span><span class="nv">file-name-as-directory</span> <span class="p">(</span><span class="nv">expand-file-name</span> <span class="s">&quot;util&quot;</span> <span class="nv">this-dir</span><span class="p">)))</span>
+</span><span class='line'>       <span class="p">(</span><span class="nv">inf-ruby-dir</span> <span class="p">(</span><span class="nv">file-name-as-directory</span> <span class="p">(</span><span class="nv">expand-file-name</span> <span class="s">&quot;inf-ruby&quot;</span> <span class="nv">util-dir</span><span class="p">)))</span>
+</span><span class='line'>       <span class="p">(</span><span class="nv">jump-dir</span> <span class="p">(</span><span class="nv">file-name-as-directory</span> <span class="p">(</span><span class="nv">expand-file-name</span> <span class="s">&quot;jump&quot;</span> <span class="nv">util-dir</span><span class="p">))))</span>
+</span><span class='line'>  <span class="p">(</span><span class="nb">dolist</span> <span class="p">(</span><span class="nv">dir</span> <span class="p">(</span><span class="nb">list</span> <span class="nv">util-dir</span> <span class="nv">inf-ruby-dir</span> <span class="nv">jump-dir</span><span class="p">))</span>
+</span><span class='line'>    <span class="p">(</span><span class="nb">when</span> <span class="p">(</span><span class="nv">file-exists-p</span> <span class="nv">dir</span><span class="p">)</span>
+</span><span class='line'>      <span class="p">(</span><span class="nv">add-to-list</span> <span class="ss">&#39;load-path</span> <span class="nv">dir</span><span class="p">))))</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>它有这样的格式：(let VARLIST BODY&hellip;)，说得容易理解就是这样：
+(let ((varname value) (varname value)&hellip;)
+  (body1)
+  (body2)&hellip;)
+这些被绑定的变量是在这个let之内的，一旦let中的语句执行完，就不见了，不会造成变量名污染。</p>
+
+<h3>let 和 let* 的异同。</h3>
+
+<p>let和let*在elisp中，都是局部变量绑定。不同的是，let是平行绑定（parallel binding），let*是顺序绑定。</p>
+
+<p>例子如下：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='lisp'><span class='line'><span class="p">(</span><span class="nb">setf</span> <span class="nv">x</span> <span class="ss">&#39;outside</span><span class="p">)</span>
+</span><span class='line'><span class="p">(</span><span class="k">let</span> <span class="p">((</span><span class="nv">x</span> <span class="ss">&#39;inside</span><span class="p">)</span> <span class="p">(</span><span class="nv">y</span> <span class="nv">x</span><span class="p">)</span>
+</span><span class='line'>  <span class="p">(</span><span class="nb">list</span> <span class="nv">x</span> <span class="nv">y</span><span class="p">))</span>
+</span><span class='line'>  <span class="c1">;输出结果为(INSIDE OUTSIDE)</span>
+</span><span class='line'><span class="p">(</span><span class="k">let*</span> <span class="p">((</span><span class="nv">x</span> <span class="ss">&#39;inside</span><span class="p">)</span> <span class="p">(</span><span class="nv">y</span> <span class="nv">x</span><span class="p">)</span>
+</span><span class='line'>  <span class="p">(</span><span class="nb">list</span> <span class="nv">x</span> <span class="nv">y</span><span class="p">))</span>
+</span><span class='line'>  <span class="c1">;输出结果为(INSIDE INSIDE)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Slim 模版语言]]></title>
