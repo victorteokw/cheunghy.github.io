@@ -3,6 +3,12 @@
   
   
   <url>
+    <loc>http://cheunghy.github.io/blog/2014/09/12/jump-and-navigation/</loc>
+    <lastmod>2014-09-12T15:38:29+08:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
     <loc>http://cheunghy.github.io/blog/2014/09/11/let-and-let-star/</loc>
     <lastmod>2014-09-11T13:43:28+08:00</lastmod>
     <priority>0.8</priority>
@@ -23,28 +29,28 @@
   
   <url>
     <loc>http://cheunghy.github.io/blog/archives/</loc>
-    <lastmod>2014-09-11T14:12:59+08:00</lastmod>
+    <lastmod>2014-09-12T15:57:14+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://cheunghy.github.io/archives/</loc>
-    <lastmod>2014-09-11T14:12:59+08:00</lastmod>
+    <lastmod>2014-09-12T15:57:14+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://cheunghy.github.io/blog/</loc>
-    <lastmod>2014-09-11T14:12:59+08:00</lastmod>
+    <lastmod>2014-09-12T15:57:14+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://cheunghy.github.io/</loc>
-    <lastmod>2014-09-11T14:12:59+08:00</lastmod>
+    <lastmod>2014-09-12T15:57:14+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
