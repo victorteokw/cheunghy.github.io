@@ -4,7 +4,7 @@
   <title><![CDATA[Category: elisp | Tieh Kai Woo's Blog]]></title>
   <link href="http://cheunghy.github.io/blog/categories/elisp/atom.xml" rel="self"/>
   <link href="http://cheunghy.github.io/"/>
-  <updated>2014-09-12T15:57:14+08:00</updated>
+  <updated>2014-10-12T21:07:50+08:00</updated>
   <id>http://cheunghy.github.io/</id>
   <author>
     <name><![CDATA[Tieh Kai Woo]]></name>
@@ -12,6 +12,32 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[elisp的跳转和导航]]></title>
+    <link href="http://cheunghy.github.io/blog/2014/09/12/jump-and-navigation/"/>
+    <updated>2014-09-12T15:38:29+08:00</updated>
+    <id>http://cheunghy.github.io/blog/2014/09/12/jump-and-navigation</id>
+    <content type="html"><![CDATA[<h3>直接跳转</h3>
+
+<p>在光标下，M-x find-function
+可以将这个绑定到一个快捷的按键。</p>
+
+<h3>imenu</h3>
+
+<p>多数mode都支持imenu来跳转到指定函数定义处。
+M-x imenu</p>
+
+<h3>用occur来概览</h3>
+
+<p>M-x occur
+它会生成一个新的buffer，给出所有匹配。在elisp模式下，用occur搜索defun，会得到一个函数定义的概览。</p>
+
+<h3>使用hs-minor-mode来折叠代码</h3>
+
+<p>使用hs-minor-mode可以折叠和展开。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[let and let*]]></title>
