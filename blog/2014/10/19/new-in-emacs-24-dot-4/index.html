@@ -1,24 +1,104 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: emacs | Tieh Kai Woo's Blog]]></title>
-  <link href="http://cheunghy.github.io/blog/categories/emacs/atom.xml" rel="self"/>
-  <link href="http://cheunghy.github.io/"/>
-  <updated>2014-10-19T16:36:35+08:00</updated>
-  <id>http://cheunghy.github.io/</id>
-  <author>
-    <name><![CDATA[Tieh Kai Woo]]></name>
-    
-  </author>
-  <generator uri="http://octopress.org/">Octopress</generator>
+<!DOCTYPE HTML>
+<html>
+<head>
+	<script data-cfasync="false" type="text/javascript" src="//use.typekit.net/axj3cfp.js"></script>
+	<script data-cfasync="false" type="text/javascript">try{Typekit.load();}catch(e){}</script>
+	<meta charset="utf-8">
+	<title>探秘Emacs 24.4  | Tieh Kai Woo's Blog</title>
 
-  
-  <entry>
-    <title type="html"><![CDATA[探秘Emacs 24.4]]></title>
-    <link href="http://cheunghy.github.io/blog/2014/10/19/new-in-emacs-24-dot-4/"/>
-    <updated>2014-10-19T14:05:43+08:00</updated>
-    <id>http://cheunghy.github.io/blog/2014/10/19/new-in-emacs-24-dot-4</id>
-    <content type="html"><![CDATA[<p>这篇文章翻译自<a href="http://www.masteringemacs.org">Mastering Emacs</a>的<a href="http://www.masteringemacs.org/article/whats-new-in-emacs-24-4">What&rsquo;s New In Emacs 24.4</a>。原作者是Mickey Petersen。</p>
+<meta name="author" content="Tieh Kai Woo"> 
+
+<meta name="description" content="Tieh Kai Woo's blog."> <meta name="keywords" content="">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<link href="/atom.xml" rel="alternate" title="Tieh Kai Woo's Blog" type="application/atom+xml">
+	<link rel="canonical" href="">
+	<link href="/favicon.png" rel="shortcut icon">
+	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<link href="/stylesheets/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script type="text/javascript" src="/javascripts/jquery.fancybox.pack.js"></script>
+
+<script language="Javascript" type="text/javascript">
+$(document).ready(
+  function() {
+    (function($) {
+      $(".fancybox[data-content-id]").each(function() {
+        this.href = $(this).data('content-id');
+      });
+      $(".fancybox").fancybox({
+        beforeLoad: function() {
+          var el, 
+              id = $(this.element).data('title-id');
+
+          if (id) {
+            el = $('#' + id);
+
+            if (el.length) {
+              this.title = el.html();
+            }
+          }
+          if ($(this).data('content')) {
+            this.content = $(this).data('content');
+          }
+        },
+        helpers: {
+          title: {
+            type: 'inside'
+          }
+        }
+      });
+    })(jQuery);
+  }
+);
+</script>
+
+	
+</head>
+
+
+
+<body>
+	<header id="header" class="inner"><h1><a href="/">Tieh Kai Woo's Blog</a></h1>
+<h4>An Ruby and iOS Developer.</h4>
+<nav id="main-nav"><ul>
+	<li><a href="/">Blog</a></li>
+	<li><a href="/about">About</a></li>
+	<li><a href="/portfolio">Portfolio</a></li>
+	<li><a href="/archives">Archive</a></li>
+</ul>
+</nav>
+<nav id="mobile-nav">
+	<div class="alignleft menu">
+		<a class="button">Menu</a>
+		<div class="container"><ul>
+	<li><a href="/">Blog</a></li>
+	<li><a href="/about">About</a></li>
+	<li><a href="/portfolio">Portfolio</a></li>
+	<li><a href="/archives">Archive</a></li>
+</ul>
+</div>
+	</div>
+	<div class="alignright search">
+		<a class="button"></a>
+		<div class="container">
+			<form action="https://www.google.com/search" method="get">
+				<input type="text" name="q" results="0">
+				<input type="hidden" name="q" value="site:cheunghy.github.io">
+			</form>
+		</div>
+	</div>
+</nav>
+
+
+</header>
+
+	<div id="content" class="inner"><article class="post">
+	<h2 class="title">探秘Emacs 24.4</h2>
+	<div class="entry-content"><p>这篇文章翻译自<a href="http://www.masteringemacs.org">Mastering Emacs</a>的<a href="http://www.masteringemacs.org/article/whats-new-in-emacs-24-4">What&rsquo;s New In Emacs 24.4</a>。原作者是Mickey Petersen。</p>
 
 <p>嗯，又一年的这时来到了。一个新的Emacs小版本就要问世了。按我的传统，我要详细解说新版本的特点。当然啦，在这里，“小版本”是一个相对的词：Emacs 24.4是全都是细微的改动和改变，但意义却不小。</p>
 
@@ -177,33 +257,90 @@ Emacs备份文件时保护文件的ACL信息。</p></blockquote>
 <h2>缩进变化</h2>
 
 <p>（译者注：接下来我可能会继续翻译完它）</p>
-]]></content>
-  </entry>
+</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
   
-  <entry>
-    <title type="html"><![CDATA[elisp的跳转和导航]]></title>
-    <link href="http://cheunghy.github.io/blog/2014/09/12/jump-and-navigation/"/>
-    <updated>2014-09-12T15:38:29+08:00</updated>
-    <id>http://cheunghy.github.io/blog/2014/09/12/jump-and-navigation</id>
-    <content type="html"><![CDATA[<h3>直接跳转</h3>
 
-<p>在光标下，M-x find-function
-可以将这个绑定到一个快捷的按键。</p>
 
-<h3>imenu</h3>
+<time datetime="2014-10-19T14:05:43+08:00" pubdate data-updated="true">Oct 19<sup>th</sup>, 2014</time></div>
+	
 
-<p>多数mode都支持imenu来跳转到指定函数定义处。
-M-x imenu</p>
+<div class="tags">
 
-<h3>用occur来概览</h3>
+	<a class='category' href='/blog/categories/elisp/'>elisp</a>, <a class='category' href='/blog/categories/emacs/'>emacs</a>
 
-<p>M-x occur
-它会生成一个新的buffer，给出所有匹配。在elisp模式下，用occur搜索defun，会得到一个函数定义的概览。</p>
+</div>
 
-<h3>使用hs-minor-mode来折叠代码</h3>
 
-<p>使用hs-minor-mode可以折叠和展开。</p>
-]]></content>
-  </entry>
-  
-</feed>
+	
+</div></article>
+
+	<div class="share">
+	<div class="addthis_toolbox addthis_default_style ">
+	
+	
+	<a class="addthis_button_tweet"></a>
+	
+	
+<!---	<a class="addthis_counter addthis_pill_style"></a> --->
+	</div>
+  <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid="></script>
+</div>
+
+
+
+<section id="comment">
+    <h2 class="title">Comments</h2>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+</section>
+</div>
+	<footer id="footer" class="inner">Copyright &copy; 2014
+
+    Tieh Kai Woo
+
+<br>
+Powered by Octopress.
+</footer>
+	<script src="/javascripts/slash.js"></script>
+<script src="/javascripts/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+	$('.fancybox').fancybox();
+})(jQuery);
+</script> <!-- Delete or comment this line to disable Fancybox -->
+
+
+<script type="text/javascript">
+      var disqus_shortname = 'tiehkaiwoo';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://cheunghy.github.io/blog/2014/10/19/new-in-emacs-24-dot-4/';
+        var disqus_url = 'http://cheunghy.github.io/blog/2014/10/19/new-in-emacs-24-dot-4/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+</body>
+</html>
