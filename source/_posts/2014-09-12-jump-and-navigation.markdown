@@ -3,7 +3,7 @@ layout: post
 title: "elisp的跳转和导航"
 date: 2014-09-12 15:38:29 +0800
 comments: true
-categories: [emacs elisp]
+categories: emacs elisp
 ---
 ### 直接跳转
 在光标下，M-x find-function
