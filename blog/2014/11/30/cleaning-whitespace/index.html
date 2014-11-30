@@ -5,7 +5,7 @@
 	<script data-cfasync="false" type="text/javascript" src="//use.typekit.net/axj3cfp.js"></script>
 	<script data-cfasync="false" type="text/javascript">try{Typekit.load();}catch(e){}</script>
 	<meta charset="utf-8">
-	<title>Blog Archives  | Tieh Kai Woo's Blog</title>
+	<title>清空空格  | Tieh Kai Woo's Blog</title>
 
 <meta name="author" content="Tieh Kai Woo"> 
 
@@ -96,19 +96,48 @@ $(document).ready(
 
 </header>
 
-	<div id="content" class="inner">
-	
+	<div id="content" class="inner"><article class="post">
+	<h2 class="title">清空空格</h2>
+	<div class="entry-content"><p>编辑代码时，使用Tab还是Whitespace缩进，保证没有右边的空格，不仅令自己看起来整洁，也会令代码增色。</p>
+
+<p>Sublime Text提供一键选择Tab或WS，缩进几个字符，保存时自动删除右边的空格。然而，Emacs有更强大的功能。</p>
+
+<h2>使用Emacs自带的库：whitespace</h2>
+
+<p>whitespace十分强大，可以自定义配置如何显示空格字符，还可以一行代码将Tab转换为Space，一行代码删除所有右边的空格。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='lisp'><span class='line'>  <span class="p">(</span><span class="nv">add-hook</span> <span class="ss">&#39;before-save-hook</span> <span class="ss">&#39;whitespace-cleanup</span> <span class="no">nil</span> <span class="no">t</span><span class="p">)</span>
+</span><span class='line'>  <span class="p">(</span><span class="nv">setq-local</span> <span class="nv">whitespace-style</span> <span class="o">&#39;</span><span class="p">(</span><span class="nv">empty</span> <span class="nv">indentation::space</span>
+</span><span class='line'>                                 <span class="nv">space-befure-tab::space</span>
+</span><span class='line'>                                 <span class="nv">trailing</span>
+</span><span class='line'>                                 <span class="nv">whitespace-style::space</span><span class="p">))</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
-	
-	
-	<section class="archives"><h1 class="year">2014</h1>
+<p>使用add-hook，令文件在保存时触发清理空格，第三个参数nil，意味着先执行，如果没有更多函数加到这个hook。第四个参数意味着不是全局所有的buffer保存时都触发。因为只希望这个mode会这样。比如没人希望markdown-mode也触发清空whitespace。</p>
+</div>
 
-<article>
-	<h2 class="title"><a href="/blog/2014/11/30/cleaning-whitespace/">清空空格</a></h2>
-	<div class="meta">
-		<div class="date">Nov 30</div>
-		
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-11-30T21:57:07+08:00" pubdate data-updated="true">Nov 30<sup>th</sup>, 2014</time></div>
+	
 
 <div class="tags">
 
@@ -117,149 +146,28 @@ $(document).ready(
 </div>
 
 
-	    
-	</div>
-</article>
-
 	
+</div></article>
 
-
-<article>
-	<h2 class="title"><a href="/blog/2014/11/27/tuan-dui-xie-zuo-chang-yong-de-gitji-qiao/">团队协作常用的git技巧</a></h2>
-	<div class="meta">
-		<div class="date">Nov 27</div>
-		
-
-<div class="tags">
-
-	<a class='category' href='/blog/categories/git/'>git</a>
-
+	<div class="share">
+	<div class="addthis_toolbox addthis_default_style ">
+	
+	
+	<a class="addthis_button_tweet"></a>
+	
+	
+<!---	<a class="addthis_counter addthis_pill_style"></a> --->
+	</div>
+  <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid="></script>
 </div>
 
 
-	    
-	</div>
-</article>
 
-	
-
-
-<article>
-	<h2 class="title"><a href="/blog/2014/10/19/new-in-emacs-24-dot-4/">探秘Emacs 24.4</a></h2>
-	<div class="meta">
-		<div class="date">Oct 19</div>
-		
-
-<div class="tags">
-
-	<a class='category' href='/blog/categories/elisp/'>elisp</a>, <a class='category' href='/blog/categories/emacs/'>emacs</a>
-
+<section id="comment">
+    <h2 class="title">Comments</h2>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </div>
-
-
-	    
-	</div>
-</article>
-
-	
-
-
-<article>
-	<h2 class="title"><a href="/blog/2014/10/12/intro-to-cartography/">Cartography解读</a></h2>
-	<div class="meta">
-		<div class="date">Oct 12</div>
-		
-
-<div class="tags">
-
-	<a class='category' href='/blog/categories/ios/'>ios</a>, <a class='category' href='/blog/categories/swift/'>swift</a>
-
-</div>
-
-
-	    
-	</div>
-</article>
-
-	
-
-
-<article>
-	<h2 class="title"><a href="/blog/2014/09/12/jump-and-navigation/">elisp的跳转和导航</a></h2>
-	<div class="meta">
-		<div class="date">Sep 12</div>
-		
-
-<div class="tags">
-
-	<a class='category' href='/blog/categories/elisp/'>elisp</a>, <a class='category' href='/blog/categories/emacs/'>emacs</a>
-
-</div>
-
-
-	    
-	</div>
-</article>
-
-	
-
-
-<article>
-	<h2 class="title"><a href="/blog/2014/09/11/let-and-let-star/">let and let*</a></h2>
-	<div class="meta">
-		<div class="date">Sep 11</div>
-		
-
-<div class="tags">
-
-	<a class='category' href='/blog/categories/elisp/'>elisp</a>
-
-</div>
-
-
-	    
-	</div>
-</article>
-
-	
-
-
-<article>
-	<h2 class="title"><a href="/blog/2014/08/17/the-slim-template-language/">Slim 模版语言</a></h2>
-	<div class="meta">
-		<div class="date">Aug 17</div>
-		
-
-<div class="tags">
-
-	<a class='category' href='/blog/categories/html/'>html</a>, <a class='category' href='/blog/categories/ruby/'>ruby</a>, <a class='category' href='/blog/categories/slim/'>slim</a>
-
-</div>
-
-
-	    
-	</div>
-</article>
-
-	
-
-
-<article>
-	<h2 class="title"><a href="/blog/2014/07/19/introduction-to-scss-in-chinese/">领略SCSS的魅力</a></h2>
-	<div class="meta">
-		<div class="date">Jul 19</div>
-		
-
-<div class="tags">
-
-	<a class='category' href='/blog/categories/css/'>css</a>, <a class='category' href='/blog/categories/sass/'>sass</a>
-
-</div>
-
-
-	    
-	</div>
-</article>
+</section>
 </div>
 	<footer id="footer" class="inner">Copyright &copy; 2014
 
@@ -281,7 +189,10 @@ Powered by Octopress.
       var disqus_shortname = 'tiehkaiwoo';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://cheunghy.github.io/blog/2014/11/30/cleaning-whitespace/';
+        var disqus_url = 'http://cheunghy.github.io/blog/2014/11/30/cleaning-whitespace/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

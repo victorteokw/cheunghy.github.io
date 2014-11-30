@@ -4,7 +4,7 @@
   <title><![CDATA[Tieh Kai Woo's Blog]]></title>
   <link href="http://cheunghy.github.io/atom.xml" rel="self"/>
   <link href="http://cheunghy.github.io/"/>
-  <updated>2014-11-27T21:53:03+08:00</updated>
+  <updated>2014-11-30T22:20:27+08:00</updated>
   <id>http://cheunghy.github.io/</id>
   <author>
     <name><![CDATA[Tieh Kai Woo]]></name>
@@ -12,6 +12,36 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[清空空格]]></title>
+    <link href="http://cheunghy.github.io/blog/2014/11/30/cleaning-whitespace/"/>
+    <updated>2014-11-30T21:57:07+08:00</updated>
+    <id>http://cheunghy.github.io/blog/2014/11/30/cleaning-whitespace</id>
+    <content type="html"><![CDATA[<p>编辑代码时，使用Tab还是Whitespace缩进，保证没有右边的空格，不仅令自己看起来整洁，也会令代码增色。</p>
+
+<p>Sublime Text提供一键选择Tab或WS，缩进几个字符，保存时自动删除右边的空格。然而，Emacs有更强大的功能。</p>
+
+<h2>使用Emacs自带的库：whitespace</h2>
+
+<p>whitespace十分强大，可以自定义配置如何显示空格字符，还可以一行代码将Tab转换为Space，一行代码删除所有右边的空格。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='lisp'><span class='line'>  <span class="p">(</span><span class="nv">add-hook</span> <span class="ss">&#39;before-save-hook</span> <span class="ss">&#39;whitespace-cleanup</span> <span class="no">nil</span> <span class="no">t</span><span class="p">)</span>
+</span><span class='line'>  <span class="p">(</span><span class="nv">setq-local</span> <span class="nv">whitespace-style</span> <span class="o">&#39;</span><span class="p">(</span><span class="nv">empty</span> <span class="nv">indentation::space</span>
+</span><span class='line'>                                 <span class="nv">space-befure-tab::space</span>
+</span><span class='line'>                                 <span class="nv">trailing</span>
+</span><span class='line'>                                 <span class="nv">whitespace-style::space</span><span class="p">))</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>使用add-hook，令文件在保存时触发清理空格，第三个参数nil，意味着先执行，如果没有更多函数加到这个hook。第四个参数意味着不是全局所有的buffer保存时都触发。因为只希望这个mode会这样。比如没人希望markdown-mode也触发清空whitespace。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[团队协作常用的git技巧]]></title>
