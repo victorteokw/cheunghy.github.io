@@ -13,7 +13,7 @@ Sublime Text提供一键选择Tab或WS，缩进几个字符，保存时自动删
 
 whitespace十分强大，可以自定义配置如何显示空格字符，还可以一行代码将Tab转换为Space，一行代码删除所有右边的空格。
 
-``` elisp
+``` lisp
   (add-hook 'before-save-hook 'whitespace-cleanup nil t)
   (setq-local whitespace-style '(empty indentation::space
                                  space-befure-tab::space
